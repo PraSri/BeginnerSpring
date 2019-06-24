@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans  
+               http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+
+	<bean id="studentbean" class="firstspring.Student">
+		<property name="name" value="Prakhar Srivastava"></property>
+	</bean>
+	<bean id="employeebean" class="firstspring.Employee">
+		<constructor-arg value="Prakhar Srivastava"></constructor-arg>
+		<constructor-arg value="4527" type="int"></constructor-arg>
+		<constructor-arg>
+			<ref bean="addressbean" />
+		</constructor-arg>
+	</bean>
+
+	<bean id="addressbean" class="firstspring.Address">
+		<constructor-arg value="Noida"></constructor-arg>
+		<constructor-arg value="UP"></constructor-arg>
+		<constructor-arg value="India"></constructor-arg>
+	</bean>
+
+	<bean id="q" class="firstspring.Question">
+		<constructor-arg value="111" type="int"></constructor-arg>
+		<constructor-arg value="What is Java?"></constructor-arg>
+		<constructor-arg>
+			<list>
+				<value>Java is a programming language</value>
+				<value>Java is a platform</value>
+				<value>Java is an island</value>
+			</list>
+		</constructor-arg>
+	</bean>
+
+	<bean id="an" class="firstspring.Answer">
+		<constructor-arg value="123" type="int"></constructor-arg>
+		<constructor-arg value="Java is computer language"></constructor-arg>
+		<constructor-arg value="Prakhar"></constructor-arg>
+	</bean>
+
+	<bean id="q1" class="firstspring.Question">
+		<constructor-arg value="111" type="int"></constructor-arg>
+		<constructor-arg>
+			<list>
+				<ref bean="an" />
+			</list>
+		</constructor-arg>
+		<constructor-arg value="What is Java?"></constructor-arg>
+	</bean>
+
+	<bean id="mapAnswers" class="firstspring.Question">
+		<constructor-arg value="342" type="int"></constructor-arg>
+		<constructor-arg value="What is Java?"></constructor-arg>
+		<constructor-arg>
+			<map>
+				<entry key="Java is Platform" value="Prakhar"></entry>
+				<entry key="Java is language" value="Rahul"></entry>
+				<entry key="Java is island" value="John"></entry>
+			</map>
+		</constructor-arg>
+	</bean>
+
+	<bean id="u" class="firstspring.User">
+		<constructor-arg value="123" type="int"></constructor-arg>
+		<constructor-arg value="Prakhar"></constructor-arg>
+		<constructor-arg value="prasri510@gmail.com"></constructor-arg>
+	</bean>
+
+	<bean id="mapUser" class="firstspring.Question">
+		<constructor-arg value="What is java?"></constructor-arg>
+		<constructor-arg value="234" type="int"></constructor-arg>
+		<constructor-arg>
+			<map>
+				<entry key-ref="an" value-ref="u"></entry>
+			</map>
+		</constructor-arg>
+	</bean>
+	<bean id="eparent" class="firstspring.Employee">
+		<constructor-arg value="1234" type="int"></constructor-arg>
+		<constructor-arg value="Prakhar"></constructor-arg>
+	</bean>
+
+	<bean id="echild" class="firstspring.Employee" parent="eparent">
+		<constructor-arg ref="addressbean"></constructor-arg>
+	</bean>
+
+	<bean id="obj" class="firstspring.Employee">
+		<property name="id">
+			<value>20</value>
+		</property>
+		<property name="name">
+			<value>Prakhar</value>
+		</property>
+		<property name="city">
+			<value>Noida</value>
+		</property>
+	</bean>
+	<bean id="address1" class="firstspring.Address">
+		<property name="city">
+			<value>Noida</value>
+		</property>
+		<property name="state">
+			<value>Uttar Pradesh</value>
+		</property>
+		<property name="country">
+			<value>INDIA</value>
+		</property>
+	</bean>
+	<bean id="obj112" class="firstspring.Employee">
+		<property name="id" value="123"></property>
+		<property name="name" value="Ram"></property>
+		<property name="address" ref="address1"></property>
+	</bean>
+
+	<bean id="SIList" class="firstspring.Question">
+		<property name="id" value="22"></property>
+		<property name="name" value="What is your name?"></property>
+		<property name="answers">
+			<list>
+				<value>Prakhar</value>
+				<value>Rahul</value>
+				<value>Raj</value>
+			</list>
+		</property>
+	</bean>
+
+	<bean id="ans334" class="firstspring.Answer">
+		<property name="id" value="2345"></property>
+		<property name="name" value="NEW DELHI"></property>
+		<property name="by" value="PRakharSrivastava"></property>
+	</bean>
+
+	<bean id="ans335" class="firstspring.Answer">
+		<property name="id" value="2346"></property>
+		<property name="name" value="DELHI"></property>
+		<property name="by" value="PRASri"></property>
+	</bean>
+
+	<bean id="SIListAns" class="firstspring.Question">
+		<property name="id" value="2344"></property>
+		<property name="name" value="What is the capital of India?"></property>
+		<property name="ans">
+			<list>
+				<ref bean="ans334" />
+				<ref bean="ans335" />
+			</list>
+		</property>
+	</bean>
+
+	<bean id="SIMAP1" class="firstspring.Question">
+		<property name="id" value="2344"></property>
+		<property name="name" value="What is the capital of India?"></property>
+		<property name="answer">
+			<map>
+				<entry key="DELHI" value="Raj"></entry>
+				<entry key="NEW DELHI" value="Rahul"></entry>
+			</map>
+		</property>
+	</bean>
+
+	<bean id="usr123" class="firstspring.User">
+		<property name="id" value="123445"></property>
+		<property name="name" value="Prakhar"></property>
+		<property name="email" value="prasri510@gmail.com"></property>
+	</bean>
+
+	<bean id="usr1234" class="firstspring.User">
+		<property name="id" value="123455"></property>
+		<property name="name" value="PrakharSrivastava"></property>
+		<property name="email" value="prakharsri94@yahoo.com"></property>
+	</bean>
+
+	<bean id="SIMAP2" class="firstspring.Question">
+		<property name="id" value="2344"></property>
+		<property name="name" value="What is the capital of India?"></property>
+		<property name="userAnswer">
+			<map>
+				<entry key-ref="ans334" value-ref="usr123"></entry>
+				<entry key-ref="ans335" value-ref="usr1234"></entry>
+			</map>
+		</property>
+	</bean>
+	
+	<bean id = "b1" class = "firstspring.B"></bean>
+	
+	<bean id = "a" class = "firstspring.A" autowire = "byType"></bean>
+	
+	<bean id = "fa" class = "firstspring.factoryA" factory-method="getA"></bean>
+
+</beans>
