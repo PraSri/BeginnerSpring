@@ -9,7 +9,16 @@ Constructor Injection with Non-String Collection (having Dependent Object) Examp
 "Autowiring in Spring - javatpoint"
 
 24th june 2019
+"Spring Dependency Injection with Factory Method - javatpoint"
 In case of constructor autowiring mode, spring container injects the dependency by highest parameterized constructor.
 If you have 3 constructors in a class, zero-arg, one-arg and two-arg then injection will be performed by calling the two-arg constructor.
+
+25th june 2019
+"Spring Dependency Injection with Factory Method - javatpoint"
+types of factory method:
+>>A static factory method that returns instance of its own class. It is used in singleton design pattern.
+>>A static factory method that returns instance of another class. It is used instance is not known and decided at runtime.
+>>A non-static factory method that returns instance of another class. It is used instance is not known and decided at runtime.
+
 
 

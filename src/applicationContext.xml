@@ -182,11 +182,19 @@
 			</map>
 		</property>
 	</bean>
+
+	<bean id="b1" class="firstspring.B"></bean>
+
+	<bean id="a" class="firstspring.A" autowire="byType"></bean>
+
+	<bean id="fa" class="firstspring.factoryA" factory-method="getA"></bean>
+
+	<bean id="printable" class="firstspring.PrintableFactory"
+		factory-method="getPrintable"></bean>
+		
+	<bean id = "pfactory" class = "firstspring.PrintableFactory"></bean>
 	
-	<bean id = "b1" class = "firstspring.B"></bean>
-	
-	<bean id = "a" class = "firstspring.A" autowire = "byType"></bean>
-	
-	<bean id = "fa" class = "firstspring.factoryA" factory-method="getA"></bean>
+	<bean id="printableNonStatic" class="firstspring.PrintableFactory"
+		factory-method="getPrintableNonStatic" factory-bean="pfactory"></bean>
 
 </beans>

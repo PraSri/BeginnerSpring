@@ -59,6 +59,15 @@ public class Test {
 		factoryA fa = (factoryA) context.getBean("fa");
 		fa.msg();
 		
-	}
+		
+		System.out.println("Injecting dependency by static factory method that returns intance of another class");
+		Printable p = (Printable)context.getBean("printable");
+		p.print();
+		
+		System.out.println("Injecting dependency by non static factory method that returns instance of another class");
+		Printable pns = (Printable)context.getBean("printableNonStatic");
+		pns.print();
+				
+ 	}
 
 }
