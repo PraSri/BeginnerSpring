@@ -191,10 +191,11 @@
 
 	<bean id="printable" class="firstspring.PrintableFactory"
 		factory-method="getPrintable"></bean>
-		
-	<bean id = "pfactory" class = "firstspring.PrintableFactory"></bean>
-	
+
+	<bean id="pfactory" class="firstspring.PrintableFactory"></bean>
+
 	<bean id="printableNonStatic" class="firstspring.PrintableFactory"
 		factory-method="getPrintableNonStatic" factory-bean="pfactory"></bean>
+
 
 </beans>
